@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+<link rel='stylesheet' href="css/mixitup.css" type='text/css'/>
+<link rel='stylesheet' href="css/lettering.css" type='text/css'/>
+<link rel='stylesheet' href="css/fittext.css" type='text/css'/>
+
+</head>
+
+<body>
+<div id="replay" onclick="playAnim()">replay</div>
+<div id="port">portfolio</div>
+<div class="controls">
+
+  <label><h1></h1></label>
+  
+  <button class="filter" data-filter="all">All</button>
+  <button class="filter" data-filter=".category-1">Website</button>
+  <button class="filter" data-filter=".category-2">Mobile App</button>
+ 
+  
+</div>
+<div id="Container" class="container">
+  <div class="mix category-1" data-myorder="1"></div>
+  <div class="mix category-1" data-myorder="2"></div>
+  <div class="mix category-1" data-myorder="3"></div>
+  <div class="mix category-2" data-myorder="4"></div>
+  <div class="mix category-1" data-myorder="5"></div>
+  <div class="mix category-1" data-myorder="6"></div>
+  <div class="mix category-2" data-myorder="7"></div>
+  <div class="mix category-2" data-myorder="8"></div>
+  
+  <div class="gap"></div>
+  <div class="gap"></div>
+</div>
+<br>
+<br>
+<br>
+<br>
+
+
+
+
+<div id="container">
+  <h1 id="heading">Video Sample</h1>
+</div>
+
+<div>
+		 <div id="video-container">
+        	<iframe width="425" height="349" src="http://www.youtube.com/embed/FKWwdQu6_ok" frameborder="0" allowfullscreen></iframe>
+	      </div>
+
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="hhttp://cdn.jsdelivr.net/jquery.mixitup/latest/jquery.mixitup.min.js?v=2.1.2"></script>
+<script type='text/javascript' src="js/jquery.mixitup.js"></script>
+<script type='text/javascript' src="js/jquery.lettering-0.6.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fitvids/1.1.0/jquery.fitvids.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/FitText.js/1.2.0/jquery.fittext.js"></script>
+
+
+
+<!-- mix it up -->
+<script>
+$(function(){
+  $('#Container').mixItUp();
+});
+</script>
+
+
+<!-- header portfolio -->
+<script>
+var animDelay = 0.1;
+
+$(document).ready(function() {
+  playAnim();
+});
+
+function playAnim() {
+  $("#port").lettering();
+  for(var x = 0; x < $("#port").children().length; x++){
+ 		 $(".char"+(x+1).toString()).css("animation", "port 3s "+(x*animDelay).toString()+"s 1 forwards");
+  }
+}
+</script>
+
+<!-- video -->
+<script>
+  $(document).ready(function(){
+    $("#video-container").fitVids();
+  });
+</script>
+
+
+<!-- title -->
+<script>
+$("#heading").fitText(1,{ minFontSize: '50px', maxFontSize: '200px'});
+</script>
+
+
+</body>
+</html>

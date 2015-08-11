@@ -1,0 +1,57 @@
+@charset "UTF-8";
+/* CSS Document */
+
+@import 'http://fonts.googleapis.com/css?family=Open+Sans:400,700';
+
+#replay{
+  float: right;
+  font-family: 'Open Sans';
+  font-size: 20px;
+  color: white;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+#replay:hover {
+  text-decoration: underline;
+}
+
+#port{
+  clear: right;
+  color:white;
+}
+
+div span {
+  display: inline-block;
+  font-family: 'Open Sans';
+  font-size: 72px;
+  color: white;
+  text-transform: uppercase;
+  margin: 0 20px;
+  float: left;
+  opacity: 0.0;
+  animation: port 3s 1 forwards;
+  -webkit-animation: port 3s 1 forwards;
+}
+
+@keyframes port {
+  0%{
+    transform: rotateY(90deg) translateY(25%);
+    opacity: 0.0;
+  }
+  100%{
+    transform: rotateY(0deg) translateY(0%);
+    opacity: 1.0;
+  }
+}
+
+@-webkit-keyframes port {
+  0%{
+   -webkit-transform: rotateY(90deg) translateY(25%);
+    opacity: 0.0;
+  }
+  100%{
+    -webkit-transform: rotateY(0deg) translateY(0%);
+    opacity: 1.0;
+  }
+}
