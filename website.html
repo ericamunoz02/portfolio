@@ -288,7 +288,9 @@ video {
     <div class="container">
         <div class="row">
             <div class="col-md-12  text-center small-screen-default" ><header class="text-center about-oxygenna element-tall-top element-short-bottom condensed os-animation" data-os-animation="fadeInDown" data-os-animation-delay="0s" >
-    <h1 class="normal light no-bordered-header bordered-normal" >
+    <h1 class="normal light no-bordered-header bordered-normal" ><br><br>
+    
+    
         Hello world, let me introduce myself. My name is Erica Munoz currently attending Miami Art Institute in Miami, FL. I'm a passionate web & front-end developer. I enjoy taking complex problems and turning them into simple and beautiful interface designs. I work with HTML/CSS, Javascript, Bootstrap, minor php and Responsive Design. I will be graduating from the university in June 2016 and looking forward to finding a position where I am able to showcase my talents, learn from others and grow within a company.</h1>
         <img src="erica.png" height="180" width="180 ">
         
@@ -412,6 +414,55 @@ video {
   right: -45px;
   top: 55px;
 }
+
+@import url(http://fonts.googleapis.com/css?family=Roboto+Slab:700);
+
+
+  .tiles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 50%;
+  }
+
+  .tile {
+    position: relative;
+    float: left;
+    width: 33.333%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .photo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    transition: transform .5s ease-out;
+  }
+
+  .txt {
+    position: absolute;
+    z-index: 2;
+    right: 0;
+    bottom: 10%;
+    left: 0;
+    font-family: 'Roboto Slab', serif;
+    font-size: 9px;
+    line-height: 12px;
+    text-align: center;
+    cursor: default;
+  }
+
+  .x {
+    font-size: 32px;
+    line-height: 32px;
+  }
 </style>
        <br>
        <br> 
@@ -433,12 +484,20 @@ video {
      <div><img src="image/three.png"></div>
 
      <div><img src="image/four.png"></div>
-
-
-    
-
 </div>
 </div>
+<br>
+<br>
+
+<div class="tiles">
+    <div class="tile" data-scale="1.1" data-image="http://c2.q-assets.com/images/products/p/vr/vr-576_1z.jpg"></div>
+    <div class="tile" data-scale="1.6" data-image="http://c2.q-assets.com/images/products/p/vr/vr-576_1z.jpg"></div>
+    <div class="tile" data-scale="2.4" data-image="http://c2.q-assets.com/images/products/p/vr/vr-576_1z.jpg"></div>
+  </div>
+
+
+
+
 
 
 <script>
@@ -460,22 +519,43 @@ $(document).ready(function () {
 
 </script>
 
+<script>
+ $('.tile')
+    // tile mouse actions
+    .on('mouseover', function(){
+      $(this).children('.photo').css({'transform': 'scale('+ $(this).attr('data-scale') +')'});
+    })
+    .on('mouseout', function(){
+      $(this).children('.photo').css({'transform': 'scale(1)'});
+    })
+    .on('mousemove', function(e){
+      $(this).children('.photo').css({'transform-origin': ((e.pageX - $(this).offset().left) / $(this).width()) * 100 + '% ' + ((e.pageY - $(this).offset().top) / $(this).height()) * 100 +'%'});
+    })
+    // tiles set up
+    .each(function(){
+      $(this)
+        // add a photo container
+        .append('<div class="photo"></div>')
+        // some text just to show zoom level on current item in this example
+        .append('<div class="txt"><div class="x">'+ $(this).attr('data-scale') +'x</div>ZOOM ON<br>HOVER</div>')
+        // set up a background image for each tile based on data-image attribute
+        .children('.photo').css({'background-image': 'url('+ $(this).attr('data-image') +')'});
+    })
 
+</script>
 
-      
-
-
-
-
-   
-</div>        </div>
+</div>    
+ </div>
     </div>
+      
+    
+    
+    
 </section>
 <span class="et_bloom_bottom_trigger"></span>        <span class="hide"><span class="author vcard"><span class="fn">christos</span></span><span class="entry-title">Contact</span><time class="entry-date updated" datetime="2014-05-22T17:18:14+00:00">05.22.2014</time></span></article>
      
      
-<!--start footer/social media-->   
-
+<!--start footer/social media--> 
         <footer id="footer" role="contentinfo">
                 <section class="section swatch-oxygenna-red">
                 <div class="container">
